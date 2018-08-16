@@ -1,23 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=<h>, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <h1>Survey</h1>
-    Questions <br>
-    1) Do you like guitar music? <br>
-    2) Do you like hip-hop? <br>
-    3) Do you like instrumental music? <br>
-    4) Do you like longer songs? <br>
-    5) Do you like music that is typically found on the radio?
+
+    <form>
+        Questions <br> 1) Do you like guitar music?
+        <select id="question1">
+            <option value=""></option>
+            <option value="1">1 (No)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Yes)</option>
+        </select>
+
+        <br> 2) Do you like hip-hop?
+        <select id="question2">
+            <option value=""></option>
+            <option value="1">1 (No)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Yes)</option>
+        </select>
+        <br> 3) Do you like instrumental music?
+        <select id="question3">
+            <option value=""></option>
+            <option value="1">1 (No)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Yes)</option>
+        </select>
+        <br> 4) Do you like longer songs?
+        <select id="question4">
+            <option value=""></option>
+            <option value="1">1 (No)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Yes)</option>
+        </select><br> 5) Do you like music that is typically found on the radio?
+        <select id="question5">
+            <option value=""></option>
+            <option value="1">1 (No)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Yes)</option>
+        </select>
+
+        <button type="submit" id="submit">
+            Submit</button>
+
+    </form>
     <!--Psuedocode
     Flesh out 5 more quetions.
     Code a form that inputs a number 1-5 on the scale of the question.
     Send the information to the api.
     -->
+
+    <script type="text/javascript">
+        $("#submit").on("click", function (event) {
+            var data = {
+                input: [
+                    $("#question1").val(),
+                    $("#question2").val(),
+                    $("#question3").val(),
+                    $("#question4").val(),
+                    $("#question5").val(),
+                ]
+
+            }
+
+            $.post("/api/bands", data, function (data) {
+
+            });
+
+
+        });
+    
+
+
+    </script>
+
 </body>
+
 </html>
